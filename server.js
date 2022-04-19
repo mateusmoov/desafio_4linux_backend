@@ -9,6 +9,7 @@ require('dotenv').config()
 const app = express()
 app.use(cors())
 app.use(express.json())
+app.set('port', (process.env.PORT || 5000));
 
 // Credentials
 const dbUser = process.env.DB_USER
@@ -45,4 +46,4 @@ app.post('/api/login', async (req, res) => {
         console.log(err)
     }
 })
-app.listen(3000, () => console.log('Server running on port 3000'))
+app.listen(app.get('port'), () => console.log('Server running on port 3000'))
