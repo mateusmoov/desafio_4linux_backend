@@ -18,7 +18,6 @@ const dbPassword = process.env.DB_PASS
 mongoose
     .connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.og2bq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`)
     .then(() => {
-        app.listen(3001)
         console.log('Connected to Mongoose...')
     })
     .catch((err) => console.log(err))
@@ -46,4 +45,4 @@ app.post('/api/login', async (req, res) => {
         console.log(err)
     }
 })
-app.listen(3002)
+app.listen(3000, () => console.log('Server running on port 3000'))
