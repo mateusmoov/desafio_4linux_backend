@@ -14,8 +14,8 @@ app.use(express.json())
 const dbUser = process.env.DB_USER
 const dbPassword = process.env.DB_PASS
 
-const hostname = 'localhost';
-const port = 3000;
+const hostname = '34.72.183.75';
+const port = 8080;
 
 // Mongoose Connect
 mongoose
@@ -49,6 +49,6 @@ app.post('/api/login', async (req, res) => {
         console.log(err)
     }
 })
-app.listen(port, hostname, () => {
+app.listen(port, '34.72.183.75', () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
