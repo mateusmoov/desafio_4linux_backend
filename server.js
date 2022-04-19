@@ -2,10 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 const User = require('./models/User')
 require('dotenv').config()
 
 const app = express()
+app.use(cors())
 app.use(express.json())
 
 // Credentials
@@ -22,7 +24,7 @@ mongoose
     .catch((err) => console.log(err))
 
 //Login user
-app.post('/auth/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
     const { name, password } = req.body
 
     const user = await User.findOne({ name })
@@ -44,4 +46,4 @@ app.post('/auth/login', async (req, res) => {
         console.log(err)
     }
 })
-app.listen(3000)
+app.listen(3002)
