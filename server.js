@@ -14,9 +14,6 @@ app.use(express.json())
 const dbUser = process.env.DB_USER
 const dbPassword = process.env.DB_PASS
 
-const hostname = '34.72.183.75';
-const port = 8080;
-
 // Mongoose Connect
 mongoose
     .connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.og2bq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`)
@@ -49,6 +46,4 @@ app.post('/api/login', async (req, res) => {
         console.log(err)
     }
 })
-app.listen(port, '34.72.183.75', () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(3002)
